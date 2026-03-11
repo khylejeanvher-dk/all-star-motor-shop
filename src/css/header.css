@@ -1,0 +1,80 @@
+/* header.css — Announcement bar, sticky header, desktop nav */
+
+.announcement-bar {
+  background: var(--black); color: var(--light);
+  font-family: var(--font-condensed); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; padding: 8px 0; overflow: hidden; white-space: nowrap;
+}
+.announcement-bar span { display: inline-block; animation: marquee 30s linear infinite; padding-left: 100%; }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+.header {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.08);
+  height: var(--header-h); transition: box-shadow 0.3s;
+}
+
+/* Desktop Nav */
+.nav-desktop { display: flex; align-items: center; justify-content: space-between; height: 100%; padding: 0 40px; gap: 24px; }
+.nav-links { display: flex; align-items: center; gap: 20px; }
+.nav-links a, .nav-links .dropdown-trigger {
+  font-family: var(--font-condensed); font-weight: 600; font-size: 13px;
+  letter-spacing: 0.1em; color: var(--dark); transition: color 0.2s;
+  position: relative; cursor: pointer; background: none; border: none; padding: 0;
+}
+.nav-links a::after, .nav-links .dropdown-trigger::after {
+  content:''; position: absolute; bottom: -2px; left: 0;
+  width: 0; height: 1.5px; background: var(--accent); transition: width 0.25s;
+}
+.nav-links a:hover, .nav-links .dropdown-trigger:hover { color: var(--accent); }
+.nav-links a:hover::after, .nav-links .dropdown-trigger:hover::after,
+.has-dropdown.open .dropdown-trigger::after { width: 100%; }
+.has-dropdown.open .dropdown-trigger { color: var(--accent); }
+
+/* Dropdown */
+.has-dropdown { position: relative; }
+.dropdown {
+  position: absolute; top: calc(100% + 12px); left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--white); border: 1px solid rgba(0,0,0,0.1);
+  border-top: 2px solid var(--accent); min-width: 200px; padding: 8px 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12); z-index: 300;
+}
+.has-dropdown.open .dropdown {
+  opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0);
+}
+.dropdown a {
+  display: block; padding: 10px 20px; font-family: var(--font-condensed);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+  transition: background 0.15s, color 0.15s;
+}
+.dropdown a::after { display: none; }
+.dropdown a:hover { background: var(--black); color: var(--white); }
+
+/* Logo */
+.logo { display: flex; align-items: center; flex-shrink: 0; transition: opacity 0.2s; }
+.logo:hover { opacity: 0.8; }
+.logo-img { height: 44px; width: auto; display: block; object-fit: contain; }
+/* Fallback text if no image */
+.logo-text { font-family: var(--font-display); font-size: 24px; letter-spacing: 0.06em; color: var(--black); line-height: 1; }
+.logo:hover .logo-text { color: var(--accent); }
+
+/* Nav icons */
+.nav-icon a { display: flex; align-items: center; gap: 4px; color: var(--dark); transition: color 0.2s; }
+.nav-icon a:hover { color: var(--accent); }
+.nav-icon a::after { display: none !important; }
+.cart-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; background: var(--accent); color: #fff;
+  border-radius: 50%; font-size: 9px; font-weight: 700; line-height: 1;
+}
+.chevron { font-size: 10px; }
+
+/* Mobile Nav */
+.nav-mobile { display: none; align-items: center; justify-content: space-between; height: 100%; padding: 0 20px; }
+.hamburger { display: flex; flex-direction: column; gap: 5px; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--black); transition: all 0.3s; }
+.mobile-nav-icons { display: flex; gap: 16px; align-items: center; }
+.mobile-nav-icons a { color: var(--black); display: flex; align-items: center; }

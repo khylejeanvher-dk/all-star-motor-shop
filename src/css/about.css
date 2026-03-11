@@ -1,0 +1,78 @@
+/* about.css — About Us page */
+
+.about-hero {
+  background: var(--dark); color: var(--white);
+  padding: 80px 40px; text-align: center;
+}
+.about-hero-tag { font-family: var(--font-condensed); font-size: 12px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 16px; }
+.about-hero-title { font-family: var(--font-display); font-size: clamp(48px, 8vw, 96px); line-height: 0.95; letter-spacing: 0.04em; margin-bottom: 20px; }
+.about-hero-sub { font-size: 16px; color: rgba(255,255,255,0.6); max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+.about-story {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  max-width: 100%;
+}
+.about-story-text {
+  padding: 80px; background: var(--white);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.about-story-image {
+  background: var(--dark2);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 440px; overflow: hidden;
+}
+.about-story-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  color: rgba(255,255,255,0.15); padding: 40px;
+}
+.about-story-placeholder svg { width: 120px; height: 80px; }
+.about-story-placeholder p { font-family: var(--font-condensed); font-size: 12px; letter-spacing: 0.12em; }
+.about-label { font-family: var(--font-condensed); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 12px; }
+.about-heading { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); line-height: 1; letter-spacing: 0.04em; margin-bottom: 24px; }
+.about-body { font-size: 15px; line-height: 1.8; color: #444; margin-bottom: 16px; }
+
+.about-stats {
+  background: var(--black); color: var(--white);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  padding: 64px 40px; gap: 40px;
+}
+.stat-item { text-align: center; }
+.stat-number { font-family: var(--font-display); font-size: 64px; letter-spacing: 0.04em; color: var(--accent); line-height: 1; }
+.stat-label  { font-family: var(--font-condensed); font-size: 12px; letter-spacing: 0.14em; color: rgba(255,255,255,0.5); margin-top: 8px; }
+
+.about-values {
+  padding: 80px 40px;
+  background: var(--white);
+}
+.about-values-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  max-width: 1100px; margin: 48px auto 0;
+}
+.value-card {
+  padding: 32px; border: 1px solid rgba(0,0,0,0.08);
+  border-top: 3px solid var(--accent);
+}
+.value-icon { margin-bottom: 16px; color: var(--accent); }
+.value-icon svg { width: 32px; height: 32px; }
+.value-title { font-family: var(--font-condensed); font-weight: 700; font-size: 18px; letter-spacing: 0.08em; margin-bottom: 12px; }
+.value-desc  { font-size: 14px; line-height: 1.7; color: #555; }
+
+.about-team {
+  background: var(--dark); color: var(--white);
+  padding: 80px 40px; text-align: center;
+}
+.about-team .section-title { color: var(--white); margin-bottom: 48px; }
+.team-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 32px; max-width: 900px; margin: 0 auto;
+}
+.team-card { text-align: center; }
+.team-avatar {
+  width: 100px; height: 100px; border-radius: 50%;
+  background: var(--mid); margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.2);
+}
+.team-avatar svg { width: 48px; height: 48px; }
+.team-name  { font-family: var(--font-condensed); font-weight: 700; font-size: 16px; letter-spacing: 0.08em; color: var(--white); }
+.team-role  { font-size: 12px; letter-spacing: 0.1em; color: var(--steel); margin-top: 4px; font-family: var(--font-condensed); }

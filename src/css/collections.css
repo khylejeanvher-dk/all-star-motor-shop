@@ -1,0 +1,47 @@
+/* collections.css — Category grid with placeholder backgrounds */
+
+.collections-section { padding-bottom: 56px; }
+
+.collections-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto; gap: 2px; padding: 0 40px;
+}
+
+.collection-card { position: relative; overflow: hidden; aspect-ratio: 3/4; cursor: pointer; background: var(--dark2); }
+.collection-card.collection-large { grid-column: span 2; grid-row: span 2; aspect-ratio: unset; }
+
+/* Placeholder bg for collection cards */
+.collection-placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: repeating-linear-gradient(135deg, #1a1a1a 0px, #1a1a1a 12px, #1f1f1f 12px, #1f1f1f 24px);
+}
+.collection-placeholder svg { width: 50%; max-width: 120px; color: rgba(255,255,255,0.07); }
+.collection-card.collection-large .collection-placeholder svg { max-width: 200px; }
+
+.collection-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
+  transition: background 0.3s;
+}
+.collection-card:hover .collection-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+.collection-overlay h3 {
+  font-family: var(--font-display); font-size: clamp(16px, 2.5vw, 28px);
+  color: var(--white); letter-spacing: 0.04em; margin-bottom: 8px;
+}
+.collection-overlay a {
+  font-family: var(--font-condensed); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.12em; color: var(--accent);
+  opacity: 0; transform: translateY(8px); transition: all 0.3s;
+}
+.collection-card:hover .collection-overlay a { opacity: 1; transform: translateY(0); }
+
+/* CTA Banner */
+.cta-banner { background: var(--black); color: var(--white); padding: 64px 40px; text-align: center; }
+.cta-banner h3 { font-family: var(--font-display); font-size: 36px; letter-spacing: 0.04em; margin-bottom: 24px; }
+.cta-banner .btn-dark { background: transparent; color: var(--white); border-color: var(--white); }
+.cta-banner .btn-dark:hover { background: var(--accent); border-color: var(--accent); }

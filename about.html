@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us — ALL STAR MOTOR SHOP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css"/>
+</head>
+<body>
+  <div id="loadingScreen">
+    <div class="loading-logo-wrap"><div class="loading-ring-outer"></div><div class="loading-ring"></div><img src="/public/ALLSTAR.png" alt="" class="loading-logo-img"></div>
+    <div class="loading-name"><em>ALL STAR</em> MOTOR SHOP</div>
+    <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+  </div>
+  <div class="announcement-bar"><span>FREE DELIVERY ON ORDERS OVER ₱50,000 &nbsp;|&nbsp; NEW ARRIVALS: 2025 SPORT & ADVENTURE BIKES &nbsp;|&nbsp; VISIT US IN PASIG CITY &nbsp;|&nbsp; FREE DELIVERY ON ORDERS OVER ₱50,000</span></div>
+  <header class="header" id="header">
+    <nav class="nav-desktop">
+      <ul class="nav-links nav-left">
+        <li><a href="index.html">HOME</a></li>
+        <li class="has-dropdown"><a href="#" class="dropdown-trigger" data-dropdown="parts">PARTS & GEAR <span class="chevron">▾</span></a><div class="dropdown"><a href="category.html?cat=parts">ALL PARTS & GEAR</a><a href="category.html?cat=parts">ENGINE PARTS</a><a href="category.html?cat=parts">EXHAUST SYSTEMS</a><a href="category.html?cat=parts">BRAKES & SUSPENSION</a></div></li>
+        <li><a href="about.html">ABOUT</a></li>
+      </ul>
+      <a href="index.html" class="logo"><img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-text" style="display:none">ALL STAR</span></a>
+      <ul class="nav-links nav-right">
+        <li><a href="contact.html">CONTACT</a></li>
+        <li class="nav-icon"><a href="#" id="searchToggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a></li>
+        <li class="nav-icon"><a href="#" id="cartToggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="cart-count">0</span></a></li>
+        <li class="nav-icon"><a href="#" id="loginToggle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></li>
+      </ul>
+    </nav>
+    <nav class="nav-mobile">
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo"><img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-text" style="display:none">ALL STAR</span></a>
+      <div class="mobile-nav-icons">
+        <a href="#" id="mobileSearchToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
+        <a href="#" id="mobileLoginToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <a href="#" id="mobileCartToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
+      </div>
+    </nav>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">✕</button>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="category.html?cat=naked-street">NAKED / STREET</a></li><li><a href="category.html?cat=adventure">ADVENTURE / TOURING</a></li><li><a href="category.html?cat=cruisers">CRUISERS</a></li><li><a href="category.html?cat=dirt-offroad">DIRT / OFF-ROAD</a></li><li><a href="category.html?cat=electric">ELECTRIC BIKES</a></li></ul></li>
+      <li class="mobile-has-sub"><button class="mobile-sub-toggle">PARTS & GEAR <span>▾</span></button><ul class="mobile-sub"><li><a href="category.html?cat=parts">ALL PARTS</a></li></ul></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+    <div class="mobile-menu-footer"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <div class="search-input-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" id="searchInput" placeholder="Search motorcycles, parts…" autocomplete="off"><button id="searchClose">✕</button></div>
+      <div id="searchResults"><p class="search-hint">Start typing to search…</p></div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ABOUT HERO -->
+    <section class="about-hero">
+      <p class="about-hero-tag">WHO WE ARE</p>
+      <h1 class="about-hero-title">ALL STAR<br>MOTOR SHOP</h1>
+      <p class="about-hero-sub">Pasig City's most trusted destination for motorcycles, parts, and the culture that drives them. Since 2010, we've been fueling the ride.</p>
+    </section>
+
+    <!-- STORY -->
+    <div class="about-story">
+      <div class="about-story-text">
+        <p class="about-label">OUR STORY</p>
+        <h2 class="about-heading">BORN FROM A PASSION FOR THE RIDE</h2>
+        <p class="about-body">ALL STAR MOTOR SHOP started as a dream in a small garage in Pasig City. Founded by motorcycle enthusiasts who were tired of compromising on quality and service, we set out to build something different — a shop that treats every rider like family and every bike like a work of art.</p>
+        <p class="about-body">Over a decade later, we've grown into one of Metro Manila's premier motorcycle dealerships, carrying a handpicked selection of sport bikes, adventure tourers, naked bikes, cruisers, and everything in between. Our parts and accessories catalog is the most comprehensive in the region.</p>
+        <p class="about-body">Whether you're picking up your first bike or adding to a growing collection, we're here to help you find the perfect ride — and keep it running like new.</p>
+      </div>
+      <div class="about-story-image">
+        <div class="about-story-placeholder">
+          <img src="/public/allstar.png" alt="ALL STAR MOTOR SHOP">
+        
+        </div>
+      </div>
+    </div>
+
+    <!-- VALUES -->
+    <section class="about-values">
+      <div class="section-header"><h2 class="section-title">WHAT DRIVES US</h2></div>
+      <div class="about-values-grid">
+        <div class="value-card">
+          <div class="value-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 class="value-title">QUALITY FIRST</h3>
+          <p class="value-desc">Every bike and part we carry is vetted for quality and reliability. We only stock products we would put on our own bikes.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3 class="value-title">RIDERS FIRST</h3>
+          <p class="value-desc">Our staff are riders themselves. We give honest advice, not pushy sales pitches — because we know what it means to find the right bike.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 class="value-title">COMMUNITY</h3>
+          <p class="value-desc">We're more than a shop — we're a community hub for Pasig riders. Group rides, maintenance workshops, and events happen here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="about-team">
+      <h2 class="section-title">MEET THE TEAM</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="/public/KHYLE.jpg" alt="KHYLE JEANVHER C. VICTORINO"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div class="team-name">KHYLE JEANVHER C. VICTORINO</div>
+          <div class="team-role">OWNER</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="/public/KENJI.jpg" alt="KENJI EMBERNATE"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div class="team-name">KENJI EMBERNATE</div>
+          <div class="team-role">MANAGER</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="/public/VARGAS.jpg" alt="JHON ALFRED VARGAS"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div class="team-name">JHON ALFRED VARGAS</div>
+          <div class="team-role">ALL AROUND PLAYER</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="/public/WAYNE.jpg" alt="JOHN WAYNE"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div class="team-name">JOHN WAYNE</div>
+          <div class="team-role">SWAGERIZZ</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="/public/NATHANIEL.jpg" alt="JHON NATHANIEL"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div class="team-name">JHON NATHANIEL</div>
+          <div class="team-role">SWAGERIZZ</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="/public/CHRIS.jpg" alt="CHRIS JOHN WENCY CAPCO"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div class="team-name">CHRIS JOHN WENCY CAPCO</div>
+          <div class="team-role">STAFF</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="/public/DARYL.jpg" alt="DARYL ROSERO"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          </div>
+          <div class="team-name">DARYL ROSERO</div>
+          <div class="team-role">STAFF</div>
+        </div> 
+      </div>
+    </section>
+
+    <div class="cta-banner">
+      <h3>Ready to find your next ride?</h3>
+      <a href="category.html?cat=sport-bikes" class="btn btn-dark">SHOP MOTORCYCLES</a>
+    </div>
+  </main>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">✕</button>
+    <ul><li><a href="index.html">HOME</a></li>
+      <li><a href="category.html?cat=naked-street">NAKED / STREET</a></li><li><a href="category.html?cat=adventure">ADVENTURE</a></li><li><a href="category.html?cat=cruisers">CRUISERS</a></li></ul></li><li><a href="about.html">ABOUT</a></li><li><a href="contact.html">CONTACT</a></li></ul>
+    <div class="mobile-menu-footer"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box"><div class="search-input-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" id="searchInput" placeholder="Search motorcycles, parts…" autocomplete="off"><button id="searchClose">✕</button></div><div id="searchResults"><p class="search-hint">Start typing to search…</p></div></div>
+  </div>
+
+<!--FOOTER-->
+  <footer class="footer"><div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="/public/ALLSTAR.png" alt="" style="height:40px;width:auto;filter:brightness(0)invert(1)" onerror="this.outerHTML='<span style=&quot;font-family:var(--font-display);font-size:20px;color:var(--white)&quot;>ALL STAR MOTOR SHOP</span>'">
+      </div>
+      </div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="category.html?cat=sport-bikes">Motorcycles</a>
+            <a href="category.html?cat=parts">Parts & Gear</a></div>
+            <div class="footer-bottom"><p class="footer-pay">Secure Payment &nbsp;|&nbsp; Cash on Delivery &nbsp;|&nbsp; GCash &nbsp;|&nbsp; Maya</p><p class="footer-copy">© 2026, ALL STAR MOTOR SHOP</p>
+            </div>
+          </div>
+        </footer>
+
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>YOUR CART</h3>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <p class="cart-empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>TOTAL</span>
+        <span id="cartTotal">₱0.00</span>
+      </div>
+      <button id="cartCheckoutBtn" class="btn btn-dark btn-full">CHECK OUT</button>
+      <button class="btn btn-outline btn-full cart-continue">CONTINUE SHOPPING</button>
+    </div>
+  </div>
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="auth-modal" id="authModal">
+    <div class="auth-box">
+      <button class="auth-close" id="authClose">✕</button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">LOG IN</button>
+        <button class="auth-tab" data-tab="signup">SIGN UP</button>
+      </div>
+      <div class="auth-form active" id="loginForm">
+        <div class="auth-logo">ALL STAR MOTOR SHOP</div>
+        <h2 class="auth-title">Welcome back</h2>
+        <p class="auth-sub">Log in to continue.</p>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="••••••••"/>
+        </div>
+        <button class="btn btn-dark btn-full auth-submit">LOG IN</button>
+        <p class="auth-switch">No account? <a href="#" data-switch="signup">Sign up</a></p>
+      </div>
+      <div class="auth-form" id="signupForm">
+        <div class="auth-logo">ALL STAR MOTOR SHOP</div>
+        <h2 class="auth-title">Create account</h2>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Min. 8 characters"/>
+        </div>
+        <button class="btn btn-dark btn-full auth-submit">CREATE ACCOUNT</button>
+        <p class="auth-switch">Have an account? <a href="#" data-switch="login">Log in</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="auth-overlay" id="authOverlay"></div>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

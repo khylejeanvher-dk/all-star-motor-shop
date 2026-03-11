@@ -1,0 +1,58 @@
+/* category.css — Category listing page */
+
+.category-hero {
+  background: var(--dark); color: var(--white);
+  padding: 56px 40px;
+}
+.category-breadcrumb {
+  font-family: var(--font-condensed); font-size: 12px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4); margin-bottom: 16px;
+}
+.category-breadcrumb a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+.category-breadcrumb a:hover { color: var(--accent); }
+#categoryTitle {
+  font-family: var(--font-display); font-size: clamp(36px, 6vw, 72px);
+  letter-spacing: 0.04em; line-height: 1;
+}
+#categoryCount {
+  font-family: var(--font-condensed); font-size: 13px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4); margin-top: 8px; display: block;
+}
+
+.category-layout {
+  display: grid; grid-template-columns: 220px 1fr; gap: 0;
+  min-height: 60vh;
+}
+
+/* Sidebar nav */
+#categoryNav {
+  background: var(--white); border-right: 1px solid rgba(0,0,0,0.08);
+  padding: 32px 0;
+}
+#categoryNav h3 {
+  font-family: var(--font-condensed); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--steel); padding: 0 24px 12px; border-bottom: 1px solid rgba(0,0,0,0.06); margin-bottom: 8px;
+}
+#categoryNav a {
+  display: block; padding: 11px 24px;
+  font-family: var(--font-condensed); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.08em; color: var(--dark);
+  border-left: 3px solid transparent;
+  transition: all 0.18s;
+}
+#categoryNav a:hover { color: var(--accent); background: rgba(0,0,0,0.02); }
+#categoryNav a.active { color: var(--accent); border-left-color: var(--accent); background: rgba(212,68,10,0.04); }
+
+.category-content { padding: 32px; background: var(--white); }
+
+#categoryGrid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+}
+#categoryGrid .product-card { cursor: pointer; text-decoration: none; color: inherit; }
+
+#categoryEmpty {
+  display: none; text-align: center; padding: 80px 40px;
+}
+#categoryEmpty p {
+  font-family: var(--font-condensed); font-size: 14px; letter-spacing: 0.1em; color: var(--steel);
+}

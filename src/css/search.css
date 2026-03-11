@@ -1,0 +1,69 @@
+/* search.css — Search overlay */
+
+.search-overlay {
+  position: fixed; inset: 0; z-index: 800;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s;
+  display: flex; flex-direction: column;
+  align-items: center; padding-top: 80px;
+}
+.search-overlay.active {
+  opacity: 1; pointer-events: all;
+}
+
+.search-box {
+  background: var(--white); width: 100%; max-width: 680px;
+  border-radius: 0; box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+  overflow: hidden; animation: slideDown 0.3s ease;
+}
+.search-input-wrap {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px; border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.search-input-wrap svg { flex-shrink: 0; color: var(--steel); }
+#searchInput {
+  flex: 1; font-family: var(--font-condensed); font-size: 18px;
+  font-weight: 500; letter-spacing: 0.05em;
+  border: none; background: none; outline: none; color: var(--black);
+}
+#searchInput::placeholder { color: var(--steel); }
+#searchClose {
+  color: var(--steel); font-size: 18px; padding: 4px 8px;
+  transition: color 0.2s;
+}
+#searchClose:hover { color: var(--accent); }
+
+#searchResults {
+  max-height: 420px; overflow-y: auto;
+}
+.search-hint, .search-no-results {
+  padding: 20px; font-family: var(--font-condensed); font-size: 13px;
+  letter-spacing: 0.06em; color: var(--steel); text-align: center;
+}
+.search-result-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 20px; border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: background 0.15s; text-decoration: none; color: inherit;
+  position: relative;
+}
+.search-result-item:hover { background: rgba(0,0,0,0.03); }
+.search-result-img {
+  width: 60px; height: 40px; flex-shrink: 0;
+  background: #e8e4df; display: flex; align-items: center; justify-content: center;
+  color: var(--steel); padding: 6px;
+}
+.search-result-img svg { width: 100%; height: 100%; }
+.search-result-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.search-result-name { font-family: var(--font-condensed); font-weight: 700; font-size: 14px; letter-spacing: 0.04em; }
+.search-result-cat  { font-size: 11px; letter-spacing: 0.1em; color: var(--steel); }
+.search-result-price{ font-size: 13px; color: var(--accent); font-weight: 600; }
+.search-badge { font-family: var(--font-condensed); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 7px; }
+.search-badge.new      { background: var(--accent); color: #fff; }
+.search-badge.sold-out { background: var(--mid); color: var(--steel); }
+
+@keyframes slideDown {
+  from { transform: translateY(-12px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}

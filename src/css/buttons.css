@@ -1,0 +1,9 @@
+/* buttons.css — Shared button styles */
+.btn { display: inline-block; padding: 12px 28px; font-family: var(--font-condensed); font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s; }
+.btn-light { background: var(--white); color: var(--black); border: 2px solid var(--white); }
+.btn-light:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-dark { background: var(--black); color: var(--white); border: 2px solid var(--black); }
+.btn-dark:hover { background: var(--accent); border-color: var(--accent); }
+.btn-outline { background: transparent; color: var(--black); border: 2px solid var(--black); }
+.btn-outline:hover { background: var(--black); color: var(--white); }
+.btn-full { display: block; text-align: center; width: 100%; }

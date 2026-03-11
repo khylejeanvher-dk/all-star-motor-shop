@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALL STAR MOTOR SHOP — Motorcycles. Parts. Speed.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- LOADING -->
+  <div id="loadingScreen">
+    <div class="loading-logo-wrap">
+      <div class="loading-ring-outer"></div>
+      <div class="loading-ring"></div>
+      <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="loading-logo-img">
+    </div>
+    <div class="loading-name"><em>ALL STAR</em> MOTOR SHOP</div>
+    <div class="loading-bar"><div class="loading-bar-fill"></div></div>
+  </div>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <span>FREE DELIVERY ON ORDERS OVER ₱50,000 &nbsp;|&nbsp; NEW ARRIVALS: 2025 SPORT & ADVENTURE BIKES NOW IN STOCK &nbsp;|&nbsp; VISIT US IN PASIG CITY &nbsp;|&nbsp; FREE DELIVERY ON ORDERS OVER ₱50,000 &nbsp;|&nbsp; NEW ARRIVALS: 2025 SPORT & ADVENTURE BIKES NOW IN STOCK</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav-desktop">
+      <ul class="nav-links nav-left">
+        <li><a href="index.html">HOME</a></li>
+        <li class="has-dropdown">
+          <a href="#" class="dropdown-trigger" data-dropdown="parts">PARTS & GEAR <span class="chevron">▾</span></a>
+          <div class="dropdown">
+            <a href="category.html?cat=parts">ALL PARTS & GEAR</a>
+            <a href="category.html?cat=parts">ENGINE PARTS</a>
+            <a href="category.html?cat=parts">EXHAUST SYSTEMS</a>
+            <a href="category.html?cat=parts">BRAKES & SUSPENSION</a>
+            <a href="category.html?cat=parts">LIGHTING</a>
+            <a href="category.html?cat=parts">HELMETS & GEAR</a>
+          </div>
+        </li>
+        <li><a href="about.html">ABOUT</a></li>
+      </ul>
+      <a href="index.html" class="logo">
+        <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none">ALL STAR</span>
+      </a>
+      <ul class="nav-links nav-right">
+        <li><a href="contact.html">CONTACT</a></li>
+        <li class="nav-icon"><a href="#" id="searchToggle" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a></li>
+        <li class="nav-icon"><a href="#" id="cartToggle" aria-label="Cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="cart-count">0</span></a></li>
+        <li class="nav-icon"><a href="#" id="loginToggle" aria-label="Account"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></li>
+      </ul>
+    </nav>
+    <nav class="nav-mobile">
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <a href="index.html" class="logo">
+        <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="logo-text" style="display:none">ALL STAR</span>
+      </a>
+      <div class="mobile-nav-icons">
+        <a href="#" id="mobileSearchToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
+        <a href="#" id="mobileLoginToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+        <a href="#" id="mobileCartToggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">✕</button>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="category.html?cat=naked-street">NAKED / STREET</a></li>
+          <li><a href="category.html?cat=adventure">ADVENTURE / TOURING</a></li>
+          <li><a href="category.html?cat=cruisers">CRUISERS</a></li>
+          <li><a href="category.html?cat=dirt-offroad">DIRT / OFF-ROAD</a></li>
+          <li><a href="category.html?cat=electric">ELECTRIC BIKES</a></li>
+        </ul>
+      </li>
+      <li class="mobile-has-sub">
+        <button class="mobile-sub-toggle">PARTS & GEAR <span>▾</span></button>
+        <ul class="mobile-sub">
+          <li><a href="category.html?cat=parts">ALL PARTS</a></li>
+          <li><a href="category.html?cat=parts">ENGINE PARTS</a></li>
+          <li><a href="category.html?cat=parts">EXHAUST SYSTEMS</a></li>
+          <li><a href="category.html?cat=parts">HELMETS & GEAR</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a>
+    </div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- SEARCH OVERLAY -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Search motorcycles, parts…" autocomplete="off">
+        <button id="searchClose">✕</button>
+      </div>
+      <div id="searchResults"><p class="search-hint">Start typing to search…</p></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <img src="/public/Thrift.png" alt="ALL STAR MOTOR SHOP" class="hero-bg-img">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-tag">NEW ARRIVAL — 2025</p>
+        <h1 class="hero-title">BUILT FOR<br>THE ROAD</h1>
+        <p class="hero-sub">Your trusted source for quality motorcycle parts and accessories in Pasig City.</p>
+        <a href="category.html?cat=parts" class="btn btn-light">SHOP PARTS</a>
+      </div>
+    </section>
+
+    <!-- FEATURED PARTS -->
+    <section class="product-section">
+      <div class="section-header"><h2 class="section-title">FEATURED PARTS</h2></div>
+      <div class="product-grid">
+        <a class="product-card" href="product.html?id=1"><div class="product-img-wrap"><img src="/public/Mags.jpg" alt="Mag Wheels" class="product-img" loading="lazy"><span class="badge"></span></div><div class="product-info"><h3 class="product-name">Mag Wheels</h3><p class="product-price">₱3,500.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=9"><div class="product-img-wrap"><img src="/public/Front shock.jpg" alt="Front Fork / Shock" class="product-img" loading="lazy"><span class="badge new">NEW</span></div><div class="product-info"><h3 class="product-name">Front Fork / Shock</h3><p class="product-price">₱2,800.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=14"><div class="product-img-wrap"><img src="/public/Pipe.jpg" alt="Exhaust Pipe" class="product-img" loading="lazy"><span class="badge new">NEW</span></div><div class="product-info"><h3 class="product-name">Exhaust Pipe</h3><p class="product-price">₱1,650.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=16"><div class="product-img-wrap"><img src="/public/Helmet.jpg" alt="Helmet" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Helmet</h3><p class="product-price">₱1,200.00 PHP</p></div></a>
+      </div>
+    </section>
+
+    <!-- BRAKES & SUSPENSION -->
+    <section class="product-section section-dark">
+      <div class="section-header"><h2 class="section-title">BRAKES & SUSPENSION</h2></div>
+      <div class="product-grid">
+        <a class="product-card dark-card" href="product.html?id=6"><div class="product-img-wrap"><img src="/public/Disc.jpg" alt="Brake Disc" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Brake Disc / Rotor</h3><p class="product-price">₱1,200.00 PHP</p></div></a>
+        <a class="product-card dark-card" href="product.html?id=7"><div class="product-img-wrap"><img src="/public/Caliper.jpg" alt="Caliper" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Caliper</h3><p class="product-price">₱1,500.00 PHP</p></div></a>
+        <a class="product-card dark-card" href="product.html?id=8"><div class="product-img-wrap"><img src="/public/Brake Master.jpg" alt="Brake Master" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Brake Master</h3><p class="product-price">₱950.00 PHP</p></div></a>
+        <a class="product-card dark-card" href="product.html?id=10"><div class="product-img-wrap"><img src="/public/REAR SHOCK.jpg" alt="Rear Shock" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Rear Shock Absorber</h3><p class="product-price">₱1,800.00 PHP</p></div></a>
+      </div>
+    </section>
+    <div class="view-all-banner"><a href="category.html?cat=parts" class="btn btn-outline">VIEW ALL PARTS</a></div>
+
+    <!-- DRIVETRAIN & ENGINE -->
+    <section class="product-section">
+      <div class="section-header"><h2 class="section-title">DRIVETRAIN & ENGINE</h2></div>
+      <div class="product-grid">
+        <a class="product-card" href="product.html?id=3"><div class="product-img-wrap"><img src="/public/Drive Chain.jpg" alt="Drive Chain" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Drive Chain</h3><p class="product-price">₱450.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=4"><div class="product-img-wrap"><img src="/public/Belt.jpg" alt="Belt" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Belt</h3><p class="product-price">₱380.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=5"><div class="product-img-wrap"><img src="/public/Sprocket.png" alt="Sprocket" class="product-img" loading="lazy"><span class="badge new">NEW</span></div><div class="product-info"><h3 class="product-name">Sprocket</h3><p class="product-price">₱320.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=12"><div class="product-img-wrap"><img src="/public/Carburetor.jpg" alt="Carburetor" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Carburetor</h3><p class="product-price">₱1,100.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=13"><div class="product-img-wrap"><img src="/public/Fly Ball.jpg" alt="Fly Ball" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Fly Ball / Roller Weight</h3><p class="product-price">₱220.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=2"><div class="product-img-wrap"><img src="/public/Tire.jpg" alt="Tire" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Tire</h3><p class="product-price">₱850.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=11"><div class="product-img-wrap"><img src="/public/Swingarm.jpg" alt="Swingarm" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Swingarm</h3><p class="product-price">₱3,200.00 PHP</p></div></a>
+        <a class="product-card" href="product.html?id=15"><div class="product-img-wrap"><img src="/public/Seat.jpg" alt="Seat" class="product-img" loading="lazy"></div><div class="product-info"><h3 class="product-name">Seat / Saddle</h3><p class="product-price">₱780.00 PHP</p></div></a>
+      </div>
+    </section>
+    <div class="view-all-banner"><a href="category.html?cat=parts" class="btn btn-outline">VIEW ALL PARTS & ACCESSORIES</a></div>
+
+    <!-- BROWSE BY CATEGORY -->
+    <section class="collections-section">
+      <div class="section-header"><h2 class="section-title">BROWSE BY CATEGORY</h2></div>
+      <div class="collections-grid">
+        <a class="collection-card collection-large" href="category.html?cat=parts"><div class="collection-placeholder"><img src="/public/Mags.jpg" alt="Parts" style="width:100%;height:100%;object-fit:cover;opacity:0.5"></div><div class="collection-overlay"><h3>PARTS & ACCESSORIES</h3><span>BROWSE →</span></div></a>
+        <a class="collection-card" href="category.html?cat=parts"><div class="collection-placeholder"><img src="/public/Disc.jpg" alt="Brakes" style="width:100%;height:100%;object-fit:cover;opacity:0.5"></div><div class="collection-overlay"><h3>BRAKES</h3><span>BROWSE →</span></div></a>
+        <a class="collection-card" href="category.html?cat=parts"><div class="collection-placeholder"><img src="/public/Front shock.jpg" alt="Suspension" style="width:100%;height:100%;object-fit:cover;opacity:0.5"></div><div class="collection-overlay"><h3>SUSPENSION</h3><span>BROWSE →</span></div></a>
+        <a class="collection-card" href="category.html?cat=parts"><div class="collection-placeholder"><img src="/public/Drive Chain.jpg" alt="Drivetrain" style="width:100%;height:100%;object-fit:cover;opacity:0.5"></div><div class="collection-overlay"><h3>DRIVETRAIN</h3><span>BROWSE →</span></div></a>
+        <a class="collection-card" href="category.html?cat=parts"><div class="collection-placeholder"><img src="/public/Carburetor.jpg" alt="Engine" style="width:100%;height:100%;object-fit:cover;opacity:0.5"></div><div class="collection-overlay"><h3>ENGINE PARTS</h3><span>BROWSE →</span></div></a>
+        <a class="collection-card" href="category.html?cat=parts"><div class="collection-placeholder"><img src="/public/Pipe.jpg" alt="Exhaust" style="width:100%;height:100%;object-fit:cover;opacity:0.5"></div><div class="collection-overlay"><h3>EXHAUST</h3><span>BROWSE →</span></div></a>
+        <a class="collection-card" href="category.html?cat=parts"><div class="collection-placeholder"><img src="/public/Helmet.jpg" alt="Gear" style="width:100%;height:100%;object-fit:cover;opacity:0.5"></div><div class="collection-overlay"><h3>HELMETS & GEAR</h3><span>BROWSE →</span></div></a>
+        <a class="collection-card" href="category.html?cat=parts"><div class="collection-placeholder"><img src="/public/Tire.jpg" alt="Wheels" style="width:100%;height:100%;object-fit:cover;opacity:0.5"></div><div class="collection-overlay"><h3>WHEELS & TIRES</h3><span>BROWSE →</span></div></a>
+      </div>
+    </section>
+
+    <div class="cta-banner">
+      <h3>Can't find what you're looking for?</h3>
+      <a href="category.html?cat=parts" class="btn btn-dark">BROWSE ALL PARTS</a>
+    </div>
+
+  </main>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">✕</button>
+    <ul><li><a href="index.html">HOME</a></li>
+      <li><a href="category.html?cat=naked-street">NAKED / STREET</a></li><li><a href="category.html?cat=adventure">ADVENTURE</a></li><li><a href="category.html?cat=cruisers">CRUISERS</a></li></ul></li><li><a href="about.html">ABOUT</a></li><li><a href="contact.html">CONTACT</a></li></ul>
+    <div class="mobile-menu-footer"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">YouTube</a></div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box"><div class="search-input-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" id="searchInput" placeholder="Search motorcycles, parts…" autocomplete="off"><button id="searchClose">✕</button></div><div id="searchResults"><p class="search-hint">Start typing to search…</p></div></div>
+  </div>
+
+<!--FOOTER-->
+  <!--FOOTER-->
+  <footer class="footer"><div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="/public/ALLSTAR.png" alt="" style="height:40px;width:auto;filter:brightness(0)invert(1)" onerror="this.outerHTML='<span style=&quot;font-family:var(--font-display);font-size:20px;color:var(--white)&quot;>ALL STAR MOTOR SHOP</span>'">
+      </div>
+      </div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="category.html?cat=sport-bikes">Motorcycles</a>
+            <a href="category.html?cat=parts">Parts & Gear</a></div>
+            <div class="footer-bottom"><p class="footer-pay">Secure Payment &nbsp;|&nbsp; Cash on Delivery &nbsp;|&nbsp; GCash &nbsp;|&nbsp; Maya</p><p class="footer-copy">© 2026, ALL STAR MOTOR SHOP</p>
+            </div>
+          </div>
+        </footer>
+
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>YOUR CART</h3>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <p class="cart-empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>TOTAL</span>
+        <span id="cartTotal">₱0.00</span>
+      </div>
+      <button id="cartCheckoutBtn" class="btn btn-dark btn-full">CHECK OUT</button>
+      <button class="btn btn-outline btn-full cart-continue">CONTINUE SHOPPING</button>
+    </div>
+  </div>
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <div class="auth-modal" id="authModal">
+    <div class="auth-box">
+      <button class="auth-close" id="authClose">✕</button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">LOG IN</button>
+        <button class="auth-tab" data-tab="signup">SIGN UP</button>
+      </div>
+      <div class="auth-form active" id="loginForm">
+        <div class="auth-logo">ALL STAR MOTOR SHOP</div>
+        <h2 class="auth-title">Welcome back</h2>
+        <p class="auth-sub">Log in to continue.</p>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="••••••••"/>
+        </div>
+        <button class="btn btn-dark btn-full auth-submit">LOG IN</button>
+        <p class="auth-switch">No account? <a href="#" data-switch="signup">Sign up</a></p>
+      </div>
+      <div class="auth-form" id="signupForm">
+        <div class="auth-logo">ALL STAR MOTOR SHOP</div>
+        <h2 class="auth-title">Create account</h2>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Min. 8 characters"/>
+        </div>
+        <button class="btn btn-dark btn-full auth-submit">CREATE ACCOUNT</button>
+        <p class="auth-switch">Have an account? <a href="#" data-switch="login">Log in</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="auth-overlay" id="authOverlay"></div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

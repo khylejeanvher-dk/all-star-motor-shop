@@ -1,0 +1,61 @@
+/* responsive.css — Media queries */
+@media (max-width: 1100px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+  .collections-grid { grid-template-columns: repeat(3, 1fr); }
+  .collection-card.collection-large { grid-column: span 3; }
+}
+@media (max-width: 900px) {
+  .nav-desktop { display: none; }
+  .nav-mobile { display: flex; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .collections-grid { grid-template-columns: repeat(2, 1fr); padding: 0 16px; }
+  .collection-card.collection-large { grid-column: span 2; }
+  .section-header { padding: 40px 16px 24px; }
+  .view-all-banner { padding: 20px 16px 36px; }
+  .cta-banner { padding: 48px 24px; }
+}
+@media (max-width: 600px) {
+  .auth-box { padding: 28px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-inner { padding: 0 20px; }
+  .footer-top { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .cart-drawer { width: 100%; }
+  .collections-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── NEW PAGES ─────────────────────────────────────── */
+@media (max-width: 1100px) {
+  #categoryGrid { grid-template-columns: repeat(2, 1fr); }
+  .pv-main { grid-template-columns: 1fr; gap: 32px; }
+  .pv-image-wrap { max-width: 500px; }
+  .about-story { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: repeat(2, 1fr); }
+  .about-values-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-form-side, .contact-info-side { padding: 40px 24px; }
+  .category-layout { grid-template-columns: 1fr; }
+  #categoryNav { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 16px 0; }
+  #categoryNav a { padding: 8px 20px; display: inline-block; }
+  #categoryNav h3 { padding: 0 20px 8px; }
+  .about-story-text { padding: 48px 32px; }
+  .about-stats { padding: 48px 24px; }
+  .about-hero, .contact-hero { padding: 56px 24px; }
+  .about-values { padding: 56px 24px; }
+  .about-team { padding: 56px 24px; }
+  #productViewWrap { padding: 24px 20px; }
+  .contact-map-title { padding: 24px 24px 0; }
+}
+@media (max-width: 600px) {
+  .about-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; padding: 40px 20px; }
+  .stat-number { font-size: 48px; }
+  .about-values-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  #categoryGrid { grid-template-columns: repeat(2, 1fr); }
+  .cf-row { grid-template-columns: 1fr; }
+  .contact-map-wrap { height: 280px; }
+  .pv-main { gap: 24px; }
+}

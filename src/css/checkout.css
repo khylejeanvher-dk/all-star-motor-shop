@@ -1,0 +1,103 @@
+/* checkout.css — Checkout modal + Account panel */
+
+/* ── CHECKOUT OVERLAY & MODAL ──────────────────────────── */
+.checkout-overlay { position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:600;opacity:0;pointer-events:none;transition:opacity .3s; }
+.checkout-overlay.active { opacity:1;pointer-events:all; }
+.checkout-modal { position:fixed;top:50%;left:50%;transform:translate(-50%,-60%);width:min(560px,96vw);max-height:90vh;overflow-y:auto;background:#fff;z-index:610;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;border-radius:2px;padding:32px 36px 28px; }
+.checkout-modal.open { opacity:1;pointer-events:all;transform:translate(-50%,-50%); }
+.checkout-close { position:absolute;top:16px;right:18px;font-size:18px;color:#888;background:none;border:none;cursor:pointer; }
+.checkout-close:hover { color:#111; }
+
+/* Step indicators */
+.checkout-steps { margin-bottom:28px;text-align:center; }
+.checkout-step-indicator { display:flex;align-items:center;justify-content:center;gap:6px;font-family:var(--font-condensed);font-size:13px;letter-spacing:.08em; }
+.csi { color:#bbb;transition:color .2s; }
+.csi.active { color:#111;font-weight:700; }
+.csi.done  { color:#2a7d4f; }
+.csi-sep  { color:#ccc;font-size:11px; }
+
+/* Panels */
+.checkout-panel { display:none; }
+.checkout-panel.active { display:block; }
+.co-title { font-family:var(--font-display);font-size:22px;letter-spacing:.04em;margin-bottom:6px; }
+.co-sub   { font-size:13px;color:#888;margin-bottom:20px; }
+.co-error { color:#e53935;font-size:.8rem;margin-bottom:8px; }
+
+/* Form */
+.co-form  { display:flex;flex-direction:column;gap:12px;margin-bottom:20px; }
+.co-row   { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
+.co-group { display:flex;flex-direction:column;gap:4px; }
+.co-group label { font-family:var(--font-condensed);font-size:11px;letter-spacing:.1em;color:#555; }
+.co-group input { border:1px solid rgba(0,0,0,0.2);padding:9px 12px;font-family:var(--font-body);font-size:14px;outline:none;border-radius:1px;transition:border-color .2s; }
+.co-group input:focus { border-color:#111; }
+
+/* Payment options */
+.co-payment-grid { display:flex;flex-direction:column;gap:10px;margin-bottom:16px; }
+.co-pay-option input { display:none; }
+.co-pay-card { display:flex;align-items:center;gap:14px;border:2px solid rgba(0,0,0,0.12);padding:14px 16px;cursor:pointer;transition:border-color .2s;border-radius:2px; }
+.co-pay-option input:checked + .co-pay-card { border-color:#111; }
+.co-pay-card:hover { border-color:#666; }
+.co-pay-icon { font-size:24px;line-height:1; }
+.co-pay-card strong { display:block;font-family:var(--font-condensed);font-size:15px;letter-spacing:.04em; }
+.co-pay-card p { font-size:12px;color:#888;margin:2px 0 0; }
+
+/* Demo boxes */
+.co-pay-demo { margin-bottom:14px; }
+.co-demo-box { background:#f7f5f2;border:1px solid rgba(0,0,0,0.1);padding:14px 16px;font-size:13px; }
+.co-demo-label { font-family:var(--font-condensed);letter-spacing:.08em;font-size:13px;margin-bottom:6px;font-weight:700; }
+.co-demo-note { margin-top:8px;color:#c49a00;font-size:12px; }
+
+/* Order summary */
+.co-order-summary { border-top:1px solid rgba(0,0,0,0.08);padding-top:16px;margin-bottom:20px; }
+.co-order-summary h4 { font-family:var(--font-condensed);font-size:13px;letter-spacing:.1em;margin-bottom:10px; }
+.co-summary-row { display:flex;justify-content:space-between;font-size:13px;padding:4px 0; }
+.co-summary-total { display:flex;justify-content:space-between;font-family:var(--font-condensed);font-weight:700;font-size:15px;letter-spacing:.06em;padding-top:10px;border-top:1px solid rgba(0,0,0,0.1);margin-top:8px; }
+.co-btn-row { display:flex;gap:10px; }
+.co-btn-row .btn { flex:1; }
+
+/* Receipt */
+.co-receipt { text-align:center;padding:8px 0; }
+.co-receipt-icon { font-size:48px;color:#2a7d4f;margin-bottom:10px; }
+.co-receipt-details { text-align:left;background:#f7f5f2;padding:16px;margin:20px 0 24px;font-size:13px; }
+.co-receipt-row { display:flex;justify-content:space-between;padding:5px 0; }
+.co-receipt-divider { height:1px;background:rgba(0,0,0,0.1);margin:10px 0; }
+.co-receipt-total { font-family:var(--font-condensed);font-weight:700;font-size:15px;letter-spacing:.04em;border-top:2px solid #111;margin-top:6px;padding-top:8px; }
+
+/* ── CART QTY ────────────────────────────────────────────── */
+.cart-qty-row { display:flex;align-items:center;gap:8px;margin-top:8px; }
+.cart-qty-btn { width:26px;height:26px;border:1px solid rgba(0,0,0,0.2);background:#fff;cursor:pointer;font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .15s; }
+.cart-qty-btn:hover { background:#111;color:#fff; }
+.cart-qty-num { font-family:var(--font-condensed);font-size:15px;font-weight:600;min-width:20px;text-align:center; }
+.cart-item-remove { font-size:11px;color:#e53935;background:none;border:none;cursor:pointer;padding:0;font-family:var(--font-body);margin-left:auto; }
+
+/* ── ACCOUNT PANEL ──────────────────────────────────────── */
+.account-overlay { position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:490;opacity:0;pointer-events:none;transition:opacity .3s; }
+.account-overlay.active { opacity:1;pointer-events:all; }
+.account-panel { position:fixed;top:0;right:0;width:360px;max-width:100vw;height:100vh;background:#fff;z-index:500;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,0.12);overflow-y:auto; }
+.account-panel.open { transform:translateX(0); }
+.account-panel-header { display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(0,0,0,0.08); }
+.account-panel-header h3 { font-family:var(--font-display);font-size:20px;letter-spacing:.04em; }
+.account-panel-header button { font-size:16px;color:#888;background:none;border:none;cursor:pointer; }
+.account-panel-body { padding:24px;display:flex;flex-direction:column;gap:0; }
+.account-avatar { display:flex;align-items:center;gap:14px;margin-bottom:20px; }
+.account-email { font-size:13px;color:#555; }
+.account-username-wrap { display:flex;align-items:center;gap:6px;margin-top:4px; }
+.account-username { font-family:var(--font-condensed);font-size:16px;font-weight:700;letter-spacing:.04em; }
+.account-edit-btn { font-size:14px;color:#888;background:none;border:none;cursor:pointer; }
+.account-edit-row { display:flex;gap:8px;margin-bottom:16px; }
+.account-edit-row input { flex:1;border:1px solid rgba(0,0,0,0.2);padding:8px 10px;font-size:14px;font-family:var(--font-body);outline:none; }
+.account-edit-row .btn { padding:8px 14px;font-size:12px; }
+.account-section { border-top:1px solid rgba(0,0,0,0.08);padding:20px 0; }
+.account-section h4 { font-family:var(--font-condensed);font-size:13px;letter-spacing:.1em;color:#555;margin-bottom:14px; }
+.account-section .co-group { margin-bottom:10px; }
+.account-section .btn { margin-top:6px; }
+.account-save-msg { font-size:12px;color:#2a7d4f;margin-top:6px;height:16px; }
+.account-no-orders { font-size:13px;color:#888; }
+.account-order { border:1px solid rgba(0,0,0,0.1);padding:10px 12px;margin-bottom:8px;border-radius:1px; }
+.account-order-id { font-family:var(--font-condensed);font-weight:700;font-size:14px;letter-spacing:.06em; }
+.account-order-detail { font-size:12px;color:#555;margin-top:2px; }
+.account-order-pay { font-size:11px;color:#888;letter-spacing:.06em;text-transform:uppercase;margin-top:4px; }
+
+/* ── ABOUT TEAM AVATAR IMAGE ────────────────────────────── */
+.team-avatar { width:100px;height:100px;border-radius:50%;overflow:hidden;background:#e8e4de;display:flex;align-items:center;justify-content:center;margin:0 auto 14px; }
+.team-avatar img { width:100%;height:100%;object-fit:cover; }

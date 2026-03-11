@@ -1,0 +1,19 @@
+/* style.css — Main CSS entry: imports all modules */
+@import './css/base.css';
+@import './css/buttons.css';
+@import './css/loading.css';
+@import './css/header.css';
+@import './css/menu.css';
+@import './css/hero.css';
+@import './css/products.css';
+@import './css/collections.css';
+@import './css/cart.css';
+@import './css/auth.css';
+@import './css/search.css';
+@import './css/footer.css';
+@import './css/about.css';
+@import './css/contact.css';
+@import './css/product-view.css';
+@import './css/category.css';
+@import './css/responsive.css';
+@import "./css/checkout.css";

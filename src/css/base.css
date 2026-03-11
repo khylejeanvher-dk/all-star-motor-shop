@@ -1,0 +1,24 @@
+/* base.css — Variables, reset, typography */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #0a0a0a;
+  --dark: #111111;
+  --dark2: #1a1a1a;
+  --mid: #2c2c2c;
+  --steel: #888888;
+  --light: #e8e4df;
+  --white: #f5f2ee;
+  --accent: #d4440a;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --header-h: 64px;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+img { display: block; width: 100%; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul { list-style: none; }
