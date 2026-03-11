@@ -3,7 +3,7 @@
 export function getLogoHTML() {
   return `
     <a href="index.html" class="logo" aria-label="ALL STAR MOTOR SHOP">
-      <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img"
+      <img src="/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <span class="logo-text" style="display:none">ALL STAR</span>
     </a>`;
@@ -16,7 +16,7 @@ export function getHeaderHTML() {
     <div class="loading-logo-wrap">
       <div class="loading-ring-outer"></div>
       <div class="loading-ring"></div>
-      <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="loading-logo-img"
+      <img src="/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="loading-logo-img"
            onerror="this.style.filter='none'">
     </div>
     <div class="loading-name"><em>ALL STAR</em> MOTOR SHOP</div>
@@ -52,7 +52,7 @@ export function getHeaderHTML() {
       </ul>
 
       <a href="index.html" class="logo">
-        <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img"
+        <img src="/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img"
              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="logo-text" style="display:none">ALL STAR</span>
       </a>
@@ -84,7 +84,7 @@ export function getHeaderHTML() {
         <span></span><span></span><span></span>
       </button>
       <a href="index.html" class="logo">
-        <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img"
+        <img src="/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" class="logo-img"
              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="logo-text" style="display:none">ALL STAR</span>
       </a>
@@ -150,7 +150,7 @@ export function getFooterHTML() {
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-logo">
-          <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" style="height:40px;width:auto;filter:brightness(0)invert(1)"
+          <img src="/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" style="height:40px;width:auto;filter:brightness(0)invert(1)"
                onerror="this.outerHTML='<span style=\'font-family:var(--font-display);font-size:22px;letter-spacing:0.1em;color:var(--white)\'>ALL STAR MOTOR SHOP</span>'">
         </div>
         <div class="footer-social">
@@ -212,7 +212,7 @@ export function getFooterHTML() {
       </div>
       <div class="auth-form active" id="loginForm">
         <div class="auth-logo">
-          <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" style="height:36px;width:auto"
+          <img src="/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" style="height:36px;width:auto"
                onerror="this.outerHTML='<span style=\'font-family:var(--font-display);font-size:20px;letter-spacing:0.08em\'>ALL STAR</span>'">
         </div>
         <h2 class="auth-title">Welcome back</h2>
@@ -242,7 +242,7 @@ export function getFooterHTML() {
       </div>
       <div class="auth-form" id="signupForm">
         <div class="auth-logo">
-          <img src="/public/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" style="height:36px;width:auto"
+          <img src="/ALLSTAR.png" alt="ALL STAR MOTOR SHOP" style="height:36px;width:auto"
                onerror="this.outerHTML='<span style=\'font-family:var(--font-display);font-size:20px;letter-spacing:0.08em\'>ALL STAR</span>'">
         </div>
         <h2 class="auth-title">Create account</h2>
