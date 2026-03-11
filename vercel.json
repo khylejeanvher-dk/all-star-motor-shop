@@ -1,8 +1,11 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/product", "destination": "/product.html" },
-    { "source": "/category", "destination": "/category.html" },
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/contact", "destination": "/contact.html" }
+    { "source": "/product.html", "destination": "/product.html" },
+    { "source": "/category.html", "destination": "/category.html" },
+    { "source": "/about.html", "destination": "/about.html" },
+    { "source": "/contact.html", "destination": "/contact.html" },
+    { "source": "/", "destination": "/index.html" }
   ]
 }
