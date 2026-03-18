@@ -101,3 +101,105 @@
 /* ── ABOUT TEAM AVATAR IMAGE ────────────────────────────── */
 .team-avatar { width:100px;height:100px;border-radius:50%;overflow:hidden;background:#e8e4de;display:flex;align-items:center;justify-content:center;margin:0 auto 14px; }
 .team-avatar img { width:100%;height:100%;object-fit:cover; }
+
+/* ── ADDRESS SELECTOR in checkout ───────────────────────────────── */
+.co-saved-addr-label { font-family:var(--font-condensed);font-size:11px;letter-spacing:.1em;color:#888;margin-bottom:8px; }
+.co-addr-list { display:flex;flex-direction:column;gap:8px;margin-bottom:10px; }
+.co-addr-card { display:flex;align-items:flex-start;gap:10px;border:2px solid rgba(0,0,0,0.12);padding:12px 14px;cursor:pointer;border-radius:2px;transition:border-color .2s; }
+.co-addr-card.selected,.co-addr-card input:checked~.co-addr-info { border-color:#111!important; }
+.co-addr-card:has(input:checked) { border-color:#111; }
+.co-addr-card input[type="radio"] { margin-top:3px;accent-color:#111;flex-shrink:0; }
+.co-addr-info { font-size:13px;line-height:1.5; }
+.co-addr-label-tag { font-family:var(--font-condensed);font-size:11px;letter-spacing:.08em;background:#111;color:#fff;padding:2px 7px;display:inline-block;margin-bottom:3px; }
+.co-new-addr-toggle { font-size:12px;color:var(--accent);background:none;border:none;cursor:pointer;padding:4px 0;font-family:var(--font-body); }
+.co-new-addr-toggle:hover { text-decoration:underline; }
+.co-divider { border:none;border-top:1px solid rgba(0,0,0,0.08);margin:14px 0; }
+.co-form-collapsed { display:none!important; }
+.co-field-hint { font-size:11px;color:#e53935;margin-top:3px;min-height:14px; }
+
+/* ── QR PAYMENT BOX ─────────────────────────────────────────────── */
+.co-qr-box { background:#f9f8f6;border:1.5px solid rgba(0,0,0,0.1);padding:20px;margin-bottom:16px;text-align:center;border-radius:4px; }
+.co-qr-header { margin-bottom:12px; }
+.co-qr-code { display:inline-block;border:3px solid #111;padding:6px;background:#fff;margin:0 auto 12px; }
+.co-qr-code svg { display:block; }
+.co-qr-ref,.co-qr-amount { font-size:13px;margin:3px 0; }
+.co-qr-note { font-size:11px;color:#c49a00;margin-top:8px;margin-bottom:4px; }
+.co-qr-status { font-size:13px;margin-top:6px;min-height:18px; }
+
+/* ── RECEIPT MODAL ───────────────────────────────────────────────── */
+.receipt-modal-overlay { position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:900;opacity:0;pointer-events:none;transition:opacity .3s; }
+.receipt-modal-overlay.active { opacity:1;pointer-events:all; }
+.receipt-modal { position:fixed;top:50%;left:50%;transform:translate(-50%,-60%);width:min(480px,94vw);max-height:88vh;overflow-y:auto;background:#fff;z-index:910;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;padding:0; }
+.receipt-modal.open { opacity:1;pointer-events:all;transform:translate(-50%,-50%); }
+.receipt-modal-header { display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid rgba(0,0,0,0.1); }
+.receipt-modal-header h3 { font-family:var(--font-display);font-size:18px;letter-spacing:.06em; }
+.receipt-modal-header button { font-size:16px;color:#888;background:none;border:none;cursor:pointer; }
+.receipt-modal-body { padding:24px; }
+.receipt-modal-footer { padding:16px 24px;border-top:1px solid rgba(0,0,0,0.08);display:flex;gap:10px; }
+.receipt-modal-footer .btn { flex:1; }
+.receipt-header { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px; }
+.receipt-logo { font-family:var(--font-display);font-size:17px;letter-spacing:.08em; }
+.receipt-meta { font-size:12px;color:#666;text-align:right;line-height:1.6; }
+.receipt-divider { border:none;border-top:1px solid rgba(0,0,0,0.1);margin:12px 0; }
+.receipt-section { margin-bottom:14px;font-size:13px;line-height:1.8; }
+.receipt-label { font-family:var(--font-condensed);font-size:11px;letter-spacing:.1em;color:#888;margin-bottom:4px; }
+.receipt-ref { color:#666;font-size:12px; }
+.receipt-item-row { display:flex;justify-content:space-between;padding:3px 0; }
+.receipt-total-row { display:flex;justify-content:space-between;font-family:var(--font-condensed);font-weight:700;font-size:15px;letter-spacing:.04em;border-top:2px solid #111;margin-top:8px;padding-top:8px; }
+.receipt-status-row { font-size:13px;display:flex;align-items:center;gap:8px;margin-top:14px; }
+.receipt-status-badge { color:#fff;padding:3px 10px;font-family:var(--font-condensed);font-size:12px;letter-spacing:.06em;border-radius:2px; }
+
+/* ── ORDER TRACKER ───────────────────────────────────────────────── */
+.order-tracker { display:flex;align-items:center;gap:0;margin:10px 0;overflow-x:auto;padding:4px 0; }
+.tracker-step { display:flex;flex-direction:column;align-items:center;gap:3px;min-width:54px; }
+.tracker-dot { width:10px;height:10px;border-radius:50%;background:#ddd;transition:background .3s; }
+.tracker-step.active .tracker-dot { background:var(--accent);box-shadow:0 0 0 3px rgba(212,68,10,.2); }
+.tracker-step.done .tracker-dot { background:#22c55e; }
+.tracker-step span { font-size:9px;font-family:var(--font-condensed);letter-spacing:.05em;color:#aaa;text-align:center; }
+.tracker-step.active span { color:#111;font-weight:700; }
+.tracker-step.done span { color:#22c55e; }
+.tracker-line { flex:1;height:2px;background:#ddd;min-width:12px; }
+.tracker-line.done { background:#22c55e; }
+.order-tracker-cancelled { font-size:12px;color:#ef4444;font-family:var(--font-condensed);letter-spacing:.06em;padding:6px 0; }
+
+/* ── ORDER STATUS BADGE ──────────────────────────────────────────── */
+.order-status-badge { color:#fff;padding:2px 8px;font-size:10px;font-family:var(--font-condensed);letter-spacing:.07em;border-radius:2px;white-space:nowrap; }
+
+/* ── ACCOUNT SECTION ADDITIONS ───────────────────────────────────── */
+.account-section-head { display:flex;justify-content:space-between;align-items:center;margin-bottom:12px; }
+.account-section-head h4 { margin-bottom:0; }
+.btn-add-addr { font-size:12px;color:var(--accent);background:none;border:1px solid var(--accent);padding:3px 8px;font-family:var(--font-condensed);letter-spacing:.06em;cursor:pointer;transition:background .2s,color .2s; }
+.btn-add-addr:hover { background:var(--accent);color:#fff; }
+
+/* Address cards in account panel */
+.addr-card { border:1px solid rgba(0,0,0,0.1);padding:12px;margin-bottom:8px;font-size:13px;border-radius:1px; }
+.addr-card-top { display:flex;align-items:center;gap:8px;margin-bottom:4px; }
+.addr-label-tag { font-family:var(--font-condensed);font-size:11px;letter-spacing:.08em;background:#111;color:#fff;padding:1px 7px; }
+.addr-default-badge { font-size:10px;color:#22c55e;border:1px solid #22c55e;padding:1px 6px;font-family:var(--font-condensed);letter-spacing:.06em; }
+.addr-line { line-height:1.5;color:#555; }
+.addr-actions { display:flex;gap:8px;margin-top:8px; }
+.addr-btn { font-size:11px;font-family:var(--font-condensed);letter-spacing:.06em;padding:3px 8px;border:1px solid rgba(0,0,0,0.15);background:none;cursor:pointer;transition:background .15s; }
+.addr-btn:hover { background:#111;color:#fff;border-color:#111; }
+.addr-del-btn:hover { background:#ef4444;border-color:#ef4444; }
+
+/* Address form in account panel */
+.addr-form-wrap { background:#f7f5f2;padding:16px;margin-top:12px;border-radius:1px; }
+.addr-form-title { font-family:var(--font-condensed);font-size:14px;letter-spacing:.08em;margin-bottom:12px;font-weight:700; }
+.addr-form-wrap .co-group { margin-bottom:10px; }
+.addr-form-wrap .co-row { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
+.addr-form-wrap .co-group label { font-family:var(--font-condensed);font-size:11px;letter-spacing:.1em;color:#555;display:block;margin-bottom:4px; }
+.addr-form-wrap .co-group input { width:100%;border:1px solid rgba(0,0,0,0.15);padding:8px 10px;font-family:var(--font-body);font-size:13px;outline:none;background:#fff; }
+.addr-form-wrap .co-group input:focus { border-color:#111; }
+.addr-form-check { display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:12px;color:#555; }
+.addr-form-check input { accent-color:#111; }
+.addr-form-error { color:#e53935;font-size:11px;margin-top:3px; }
+.addr-form-btns { display:flex;gap:8px;margin-top:4px; }
+.addr-form-btns .btn { flex:1;padding:10px;font-size:12px; }
+
+/* ── ACCOUNT ORDER ADDITIONS ─────────────────────────────────────── */
+.account-order-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:4px; }
+.account-order-actions { display:flex;gap:8px;margin-top:10px; }
+.btn-receipt-view,.btn-order-cancel { font-size:11px;font-family:var(--font-condensed);letter-spacing:.06em;padding:4px 10px;border:1px solid rgba(0,0,0,0.15);background:none;cursor:pointer;transition:background .15s;border-radius:1px; }
+.btn-receipt-view:hover { background:#111;color:#fff;border-color:#111; }
+.btn-order-cancel { color:#ef4444;border-color:#ef4444; }
+.btn-order-cancel:hover { background:#ef4444;color:#fff; }

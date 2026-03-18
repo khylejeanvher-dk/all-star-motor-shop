@@ -13,6 +13,7 @@ export default defineConfig({
         category: resolve(__dirname, 'category.html'),
         about:    resolve(__dirname, 'about.html'),
         contact:  resolve(__dirname, 'contact.html'),
+        admin:    resolve(__dirname, 'admin.html'),
       }
     }
   }

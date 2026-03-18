@@ -219,11 +219,11 @@ export function getFooterHTML() {
         <p class="auth-sub">Log in to your account to continue.</p>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="you@example.com" />
+          <input type="email" id="loginEmail" placeholder="you@example.com" />
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" placeholder="••••••••" />
+          <input type="password" id="loginPassword" placeholder="••••••••" />
           <a href="#" class="form-forgot">Forgot password?</a>
         </div>
         <button class="btn btn-dark btn-full auth-submit">LOG IN</button>
@@ -250,24 +250,28 @@ export function getFooterHTML() {
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
-            <input type="text" placeholder="Juan" />
+            <input type="text" id="signupFirstName" placeholder="Juan" />
           </div>
           <div class="form-group">
             <label>Last Name</label>
-            <input type="text" placeholder="Dela Cruz" />
+            <input type="text" id="signupLastName" placeholder="Dela Cruz" />
           </div>
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="you@example.com" />
+          <input type="email" id="signupEmail" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number <span style="font-size:10px;color:#aaa;font-weight:400">(11 or 13 digits)</span></label>
+          <input type="tel" id="signupPhone" placeholder="09171234567" maxlength="14" />
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" placeholder="Min. 8 characters" />
+          <input type="password" id="signupPassword" placeholder="Min. 8 characters" />
         </div>
         <div class="form-group">
           <label>Confirm Password</label>
-          <input type="password" placeholder="Re-enter password" />
+          <input type="password" id="signupConfirmPassword" placeholder="Re-enter password" />
         </div>
         <div class="form-check">
           <input type="checkbox" id="agreeTerms" />
