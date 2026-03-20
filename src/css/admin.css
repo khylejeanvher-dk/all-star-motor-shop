@@ -186,6 +186,28 @@ input,select,textarea { font-family:inherit; }
 .admin-auth-btn:hover { opacity:.9; }
 .admin-auth-error { color:var(--admin-red);font-size:12px;margin-top:10px;text-align:center; }
 
+/* ── SALES REPORT ─────────────────────────────────────────── */
+.sales-period-tabs { display:flex;gap:6px; }
+.sales-period-btn {
+  padding:7px 18px;font-family:var(--font-c);font-size:12px;letter-spacing:.1em;
+  background:var(--admin-surface);border:1px solid var(--admin-border);
+  color:var(--admin-muted);cursor:pointer;transition:all .2s;
+}
+.sales-period-btn:hover { color:var(--admin-text);border-color:rgba(255,255,255,0.18); }
+.sales-period-btn.active {
+  background:var(--admin-accent);border-color:var(--admin-accent);color:#fff;
+}
+
+.sales-chart-section {
+  background:var(--admin-surface);border:1px solid var(--admin-border);
+  padding:20px 20px 16px;margin-bottom:8px;transition:opacity .3s;
+}
+.sales-chart-label {
+  font-family:var(--font-c);font-size:11px;letter-spacing:.14em;
+  color:var(--admin-muted);margin-bottom:14px;
+}
+.sales-chart-container { position:relative;height:280px; }
+
 /* ── SCROLLBAR ────────────────────────────────────────────── */
 ::-webkit-scrollbar { width:5px;height:5px; }
 ::-webkit-scrollbar-track { background:transparent; }

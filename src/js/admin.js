@@ -44,6 +44,7 @@ function switchPanel(name) {
     orders:    'ORDERS',
     products:  'PRODUCTS',
     users:     'USERS',
+    sales:     'SALES REPORT',
   }[name] || name.toUpperCase();
   loadPanelData(name);
 }
@@ -357,9 +358,248 @@ function filterAndRenderUsers() {
   </table></div>`;
 }
 
+// ── SALES REPORT ──────────────────────────────────────────────────
+let salesChart = null;
+let currentSalesPeriod = 'daily';
+
+function getSalesPeriodBounds(period) {
+  const now = new Date();
+  if (period === 'daily') {
+    const start = new Date(now); start.setHours(0,0,0,0);
+    return { start, label: 'Today', chartLabel: 'Last 7 Days', chartUnit: 'day', chartCount: 7 };
+  }
+  if (period === 'weekly') {
+    const start = new Date(now);
+    start.setDate(now.getDate() - now.getDay()); start.setHours(0,0,0,0);
+    return { start, label: 'This Week', chartLabel: 'Last 4 Weeks', chartUnit: 'week', chartCount: 4 };
+  }
+  // monthly
+  const start = new Date(now.getFullYear(), now.getMonth(), 1);
+  return { start, label: 'This Month', chartLabel: 'Last 12 Months', chartUnit: 'month', chartCount: 12 };
+}
+
+function buildChartData(orders, period) {
+  const now = new Date();
+  const labels = [];
+  const data   = [];
+  const counts = [];
+
+  if (period === 'daily') {
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(now); d.setDate(now.getDate() - i); d.setHours(0,0,0,0);
+      const dEnd = new Date(d); dEnd.setHours(23,59,59,999);
+      labels.push(d.toLocaleDateString('en-PH', { weekday:'short', month:'short', day:'numeric' }));
+      const dayOrders = orders.filter(o => {
+        const ts = o.createdAt?.seconds ? o.createdAt.seconds * 1000 : null;
+        return ts && ts >= d.getTime() && ts <= dEnd.getTime();
+      });
+      data.push(dayOrders.reduce((s, o) => s + (o.total || 0), 0));
+      counts.push(dayOrders.length);
+    }
+  } else if (period === 'weekly') {
+    for (let i = 3; i >= 0; i--) {
+      const weekStart = new Date(now);
+      weekStart.setDate(now.getDate() - now.getDay() - i * 7); weekStart.setHours(0,0,0,0);
+      const weekEnd = new Date(weekStart); weekEnd.setDate(weekStart.getDate() + 6); weekEnd.setHours(23,59,59,999);
+      labels.push(`Wk of ${weekStart.toLocaleDateString('en-PH', { month:'short', day:'numeric' })}`);
+      const wkOrders = orders.filter(o => {
+        const ts = o.createdAt?.seconds ? o.createdAt.seconds * 1000 : null;
+        return ts && ts >= weekStart.getTime() && ts <= weekEnd.getTime();
+      });
+      data.push(wkOrders.reduce((s, o) => s + (o.total || 0), 0));
+      counts.push(wkOrders.length);
+    }
+  } else {
+    for (let i = 11; i >= 0; i--) {
+      const mStart = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      const mEnd   = new Date(now.getFullYear(), now.getMonth() - i + 1, 0, 23, 59, 59, 999);
+      labels.push(mStart.toLocaleDateString('en-PH', { month:'short', year:'2-digit' }));
+      const mOrders = orders.filter(o => {
+        const ts = o.createdAt?.seconds ? o.createdAt.seconds * 1000 : null;
+        return ts && ts >= mStart.getTime() && ts <= mEnd.getTime();
+      });
+      data.push(mOrders.reduce((s, o) => s + (o.total || 0), 0));
+      counts.push(mOrders.length);
+    }
+  }
+  return { labels, data, counts };
+}
+
+function renderSalesChart(chartData) {
+  const canvas = document.getElementById('salesChartCanvas');
+  if (!canvas) return;
+  if (salesChart) { salesChart.destroy(); salesChart = null; }
+
+  const maxVal = Math.max(...chartData.data, 1);
+
+  salesChart = new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels: chartData.labels,
+      datasets: [{
+        label: 'Revenue (₱)',
+        data: chartData.data,
+        backgroundColor: chartData.data.map((v, i) =>
+          i === chartData.data.length - 1 ? 'rgba(212,68,10,0.85)' : 'rgba(212,68,10,0.35)'),
+        borderColor: 'rgba(212,68,10,0.9)',
+        borderWidth: 1,
+        borderRadius: 2,
+      }, {
+        label: 'Orders',
+        data: chartData.counts,
+        type: 'line',
+        borderColor: 'rgba(34,197,94,0.8)',
+        backgroundColor: 'rgba(34,197,94,0.1)',
+        tension: 0.3,
+        pointBackgroundColor: '#22c55e',
+        pointRadius: 4,
+        yAxisID: 'y2',
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          labels: { color: '#888', font: { family: "'Barlow Condensed', sans-serif", size: 12, weight: '600' }, boxWidth: 12 }
+        },
+        tooltip: {
+          backgroundColor: '#1c1c1c',
+          borderColor: 'rgba(255,255,255,0.1)',
+          borderWidth: 1,
+          titleColor: '#e8e8e8',
+          bodyColor: '#888',
+          callbacks: {
+            label: ctx => ctx.dataset.label === 'Revenue (₱)'
+              ? ` ₱${ctx.parsed.y.toLocaleString('en-PH', { minimumFractionDigits: 2 })}`
+              : ` ${ctx.parsed.y} order${ctx.parsed.y !== 1 ? 's' : ''}`,
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: '#666', font: { family: "'Barlow Condensed', sans-serif", size: 11 } }, grid: { color: 'rgba(255,255,255,0.04)' } },
+        y: { ticks: { color: '#666', font: { family: "'Barlow Condensed', sans-serif", size: 11 }, callback: v => '₱' + (v >= 1000 ? (v/1000).toFixed(1)+'K' : v) }, grid: { color: 'rgba(255,255,255,0.06)' }, beginAtZero: true },
+        y2: { position: 'right', ticks: { color: '#22c55e', font: { size: 11 } }, grid: { display: false }, beginAtZero: true },
+      }
+    }
+  });
+}
+
+async function loadSalesReport(period = 'daily') {
+  currentSalesPeriod = period;
+
+  // Update tab buttons
+  document.querySelectorAll('.sales-period-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.period === period));
+
+  const bounds = getSalesPeriodBounds(period);
+  const statsEl = document.getElementById('salesStats');
+  const chartEl = document.getElementById('salesChartWrap');
+  const tableEl = document.getElementById('salesTableWrap');
+  if (!statsEl) return;
+
+  statsEl.innerHTML = `<div class="admin-loading">Loading sales data…</div>`;
+  if (chartEl) chartEl.style.opacity = '0.4';
+
+  try {
+    const snap = await getDocs(collection(db, 'orders'));
+    const allOrds = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+    // Filter for selected period
+    const periodOrders = allOrds.filter(o => {
+      const ts = o.createdAt?.seconds ? o.createdAt.seconds * 1000 : null;
+      return ts && ts >= bounds.start.getTime();
+    });
+
+    const revenue     = periodOrders.reduce((s, o) => s + (o.total || 0), 0);
+    const avgOrder    = periodOrders.length ? revenue / periodOrders.length : 0;
+    const delivered   = periodOrders.filter(o => o.status === 'delivered').length;
+    const cancelled   = periodOrders.filter(o => o.status === 'cancelled').length;
+
+    // Top product
+    const productCounts = {};
+    periodOrders.forEach(o => (o.items||[]).forEach(i => {
+      productCounts[i.name] = (productCounts[i.name] || 0) + (i.qty || 1);
+    }));
+    const topProduct = Object.entries(productCounts).sort((a,b)=>b[1]-a[1])[0];
+
+    statsEl.innerHTML = `
+      <div class="stat-card accent">
+        <div class="stat-card-label">REVENUE (${bounds.label.toUpperCase()})</div>
+        <div class="stat-card-value">₱${revenue >= 1000 ? (revenue/1000).toFixed(1)+'K' : revenue.toFixed(0)}</div>
+        <div class="stat-card-sub">₱${revenue.toLocaleString('en-PH', { minimumFractionDigits: 2 })}</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-card-label">ORDERS</div>
+        <div class="stat-card-value">${periodOrders.length}</div>
+      </div>
+      <div class="stat-card yellow">
+        <div class="stat-card-label">AVG ORDER VALUE</div>
+        <div class="stat-card-value">₱${Math.round(avgOrder).toLocaleString('en-PH')}</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-card-label">DELIVERED</div>
+        <div class="stat-card-value">${delivered}</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(239,68,68,0.25)">
+        <div class="stat-card-label">CANCELLED</div>
+        <div class="stat-card-value" style="color:var(--admin-red)">${cancelled}</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(139,92,246,0.25)">
+        <div class="stat-card-label">TOP PRODUCT</div>
+        <div class="stat-card-value" style="color:var(--admin-purple);font-size:18px;line-height:1.2">${topProduct ? topProduct[0] : '—'}</div>
+        ${topProduct ? `<div class="stat-card-sub">${topProduct[1]} unit${topProduct[1]!==1?'s':''} sold</div>` : ''}
+      </div>`;
+
+    // Chart
+    if (chartEl) chartEl.style.opacity = '1';
+    const chartData = buildChartData(allOrds, period);
+    renderSalesChart(chartData);
+
+    // Orders table
+    const sorted = periodOrders.sort((a,b) => (b.createdAt?.seconds||0) - (a.createdAt?.seconds||0));
+    if (!tableEl) return;
+    if (!sorted.length) {
+      tableEl.innerHTML = `<div class="admin-empty"><div class="admin-empty-icon">📊</div>No orders found for ${bounds.label.toLowerCase()}.</div>`;
+      return;
+    }
+    tableEl.innerHTML = `
+      <div class="admin-section-header" style="margin-top:28px;margin-bottom:12px">
+        <div class="admin-section-title">ORDERS — ${bounds.label.toUpperCase()}</div>
+        <div style="font-size:12px;color:var(--admin-muted)">${sorted.length} order${sorted.length!==1?'s':''}</div>
+      </div>
+      <div class="admin-table-wrap"><table class="admin-table">
+        <thead><tr>
+          <th>ORDER ID</th><th>EMAIL</th><th>DATE</th><th>ITEMS</th><th>TOTAL</th><th>PAYMENT</th><th>STATUS</th>
+        </tr></thead>
+        <tbody>
+          ${sorted.map(o => {
+            const date = o.createdAt?.seconds ? new Date(o.createdAt.seconds*1000).toLocaleString('en-PH',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}) : '—';
+            const itemCount = (o.items||[]).reduce((s,i)=>s+(i.qty||1),0);
+            const methodLabels = { cod:'COD', gcash:'GCash', maya:'Maya' };
+            return `<tr>
+              <td class="cell-id">#${o.id.slice(-8).toUpperCase()}</td>
+              <td>${o.email||'—'}</td>
+              <td class="cell-muted">${date}</td>
+              <td class="cell-muted">${itemCount} item${itemCount!==1?'s':''}</td>
+              <td>₱${(o.total||0).toLocaleString('en-PH',{minimumFractionDigits:2})}</td>
+              <td class="cell-muted">${methodLabels[o.paymentMethod]||o.paymentMethod||'—'}</td>
+              <td>${statusBadge(o.status||'pending')}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table></div>`;
+
+  } catch(e) {
+    statsEl.innerHTML = `<div class="admin-empty">Failed to load sales data.</div>`;
+    console.error(e);
+  }
+}
+
 // ── Load panel data dispatcher ────────────────────────────────────
 function loadPanelData(panel) {
-  const map = { dashboard: loadDashboard, orders: loadOrders, products: loadProducts, users: loadUsers };
+  const map = { dashboard: loadDashboard, orders: loadOrders, products: loadProducts, users: loadUsers, sales: () => loadSalesReport(currentSalesPeriod) };
   map[panel]?.();
 }
 
@@ -393,6 +633,10 @@ function buildAdminUI(user) {
         <div class="admin-nav-item" data-panel="users">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           Users
+        </div>
+        <div class="admin-nav-item" data-panel="sales">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Sales Report
         </div>
       </nav>
       <div class="admin-sidebar-footer">
@@ -466,6 +710,28 @@ function buildAdminUI(user) {
           <div id="usersTableWrap"><div class="admin-loading">Loading…</div></div>
         </div>
 
+        <!-- SALES REPORT PANEL -->
+        <div class="admin-panel" id="panel-sales">
+          <div class="admin-section-header">
+            <div class="admin-section-title">SALES REPORT</div>
+            <div class="sales-period-tabs">
+              <button class="sales-period-btn active" data-period="daily">Daily</button>
+              <button class="sales-period-btn" data-period="weekly">Weekly</button>
+              <button class="sales-period-btn" data-period="monthly">Monthly</button>
+            </div>
+          </div>
+          <div class="admin-stats" id="salesStats">
+            <div class="admin-loading">Loading sales data…</div>
+          </div>
+          <div class="sales-chart-section" id="salesChartWrap">
+            <div class="sales-chart-label" id="salesChartLabel">REVENUE TREND</div>
+            <div class="sales-chart-container">
+              <canvas id="salesChartCanvas"></canvas>
+            </div>
+          </div>
+          <div id="salesTableWrap"></div>
+        </div>
+
       </div>
     </div>
   </div>`;
@@ -473,6 +739,12 @@ function buildAdminUI(user) {
   // Nav clicks
   document.querySelectorAll('.admin-nav-item[data-panel]').forEach(item => {
     item.addEventListener('click', () => switchPanel(item.dataset.panel));
+  });
+
+  // Sales period tabs (use event delegation since panel may re-render)
+  document.getElementById('panel-sales')?.addEventListener('click', e => {
+    const btn = e.target.closest('.sales-period-btn');
+    if (btn) loadSalesReport(btn.dataset.period);
   });
 
   // Sign out
